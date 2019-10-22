@@ -35,10 +35,13 @@ var playersAttack = [
 ];
 
 // on click 
+
+if (playerSelected == 0 && enemySelected == 0) {
 $(document).on( "click", function(e) {
     
     var objectClicked = $(e.target); 
     console.log(objectClicked.attr("id")); 
+    
 
     if (playerSelected == 0)   {
         if (objectClicked.attr("id") == "darthImage") {
@@ -47,42 +50,91 @@ $(document).on( "click", function(e) {
             console.log(playerSelected);
 
             $("#original2").appendTo("#enemyLocation"); 
-            $("#original3").appendTo("#enemyLocation"); 
-            $("#original4").appendTo("#enemyLocation"); 
+            $("#darth2Image").addClass("enemySelect"); 
 
-        } else if (objectClicked.attr("id") == "darth2Image") {
+            $("#original3").appendTo("#enemyLocation"); 
+            $("#lukeImage").addClass("enemySelect");
+
+            $("#original4").appendTo("#enemyLocation"); 
+            $("#obiImage").addClass("enemySelect");
+            
+
+        } if (objectClicked.attr("id") == "darth2Image") {
             $("#original2").appendTo("#yourCharacterLoc"); 
             playerSelected++; 
             console.log(playerSelected);
 
             $("#original1").appendTo("#enemyLocation"); 
+            $("#darthImage").addClass("enemySelect"); 
+
             $("#original3").appendTo("#enemyLocation"); 
+            $("#lukeImage").addClass("enemySelect");
+
             $("#original4").appendTo("#enemyLocation"); 
-        } else if (objectClicked.attr("id") == "lukeImage") {
+            $("#obiImage").addClass("enemySelect");
+
+        } if (objectClicked.attr("id") == "lukeImage") {
             $("#original3").appendTo("#yourCharacterLoc"); 
             playerSelected++; 
             console.log(playerSelected);
 
             $("#original1").appendTo("#enemyLocation"); 
+            $("#darthImage").addClass("enemySelect"); 
+
             $("#original2").appendTo("#enemyLocation"); 
+            $("#darth2Image").addClass("enemySelect"); 
+
             $("#original4").appendTo("#enemyLocation"); 
-        } else if (objectClicked.attr("id") == "obiImage") {
+            $("#obiImage").addClass("enemySelect");
+
+        } if (objectClicked.attr("id") == "obiImage") {
             $("#original4").appendTo("#yourCharacterLoc"); 
             playerSelected++; 
             console.log(playerSelected);
 
             $("#original1").appendTo("#enemyLocation"); 
+            $("#darthImage").addClass("enemySelect"); 
+
             $("#original2").appendTo("#enemyLocation"); 
+            $("#darth2Image").addClass("enemySelect"); 
+
             $("#original3").appendTo("#enemyLocation"); 
+            $("#lukeImage").addClass("enemySelect");
         }
     }
 
-    if (playerSelected == 1 && enemySelected )
+    }); // corresponds to on click above 
+
+}
+console.log(playerSelected); 
+
+    // if (playerSelected == 1 && enemySelected == 0) {
+
+            $(document).on( "click", function(e) {
+            
+                var objectClicked = $(e.target); 
+                console.log(objectClicked.attr("id"));
+                console.log(objectClicked.hasClass("enemySelect"));
 
 
+                    if (objectClicked.attr("id") == "darthImage" && objectClicked.hasClass("enemySelect")) {
+                        $("#original1").appendTo("#defenderLocation"); 
+                        enemySelected++; 
+                        
+                    } if (objectClicked.attr("id") == "darth2Image" && objectClicked.hasClass("enemySelect")) {
+                        $("#original2").appendTo("#defenderLocation"); 
+                        enemySelected++; 
+                    } else if (objectClicked.attr("id") == "lukeImage" && objectClicked.hasClass("enemySelect")) {
+                        $("#original3").appendTo("#defenderLocation"); 
+                        enemySelected++; 
+                    } else if (objectClicked.attr("id") == "obiImage" && objectClicked.hasClass("enemySelect")) {
+                        $("#original4").appendTo("#defenderLocation"); 
+                        enemySelected++; 
+                    }
+            
+            });
 
-
-    });
+// }
 
 });
 
