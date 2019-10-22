@@ -16,7 +16,7 @@ h2 {
     clear: both; 
 }
 
-.darthImage {
+#darthImage {
     height: 90px; 
     width: auto; 
     margin-top: 15px; 
@@ -25,7 +25,7 @@ h2 {
     transform: translateX(-50%);
 }
 
-.darth2Image {
+#darth2Image {
     height: 90px; 
     width: auto; 
     margin-top: 15px; 
@@ -34,7 +34,7 @@ h2 {
     transform: translateX(-50%);
 }
 
-.lukeImage {
+#lukeImage {
     height: 90px; 
     width: auto; 
     margin-top: 15px; 
@@ -44,7 +44,7 @@ h2 {
     
 }
 
-.obiImage {
+#obiImage {
     height: 90px; 
     width: auto; 
     margin-top: 15px; 
