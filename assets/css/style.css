@@ -1,0 +1,82 @@
+.player {
+    position: relative;
+    height: 130px; 
+    width: 100px; 
+    border: 4px black solid; 
+    margin: 10px; 
+    background: lightgray; 
+    float: left; 
+}
+
+/* .health {
+    font-size: 9pt; 
+} */
+
+h2 {
+    clear: both; 
+}
+
+.darthImage {
+    height: 90px; 
+    width: auto; 
+    margin-top: 15px; 
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.darth2Image {
+    height: 90px; 
+    width: auto; 
+    margin-top: 15px; 
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.lukeImage {
+    height: 90px; 
+    width: auto; 
+    margin-top: 15px; 
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+    
+}
+
+.obiImage {
+    height: 90px; 
+    width: auto; 
+    margin-top: 15px; 
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+#darthV {
+    position: absolute; 
+   width: 100%; 
+   text-align: center; 
+   font-size: 9pt; 
+}
+
+#darthS {
+    position: absolute; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 9pt; 
+} 
+
+#obi {
+    position: absolute; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 9pt; 
+}
+
+#luke {
+    position: absolute;   
+    width: 100%;  
+    text-align: center;  
+    font-size: 9pt; 
+} 

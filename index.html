@@ -5,18 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
     
+    <div class="player player1"> 
+        <span id="darthV">Darth Vader</span>
+        <img class="darthImage" src="assets/images/darth.jpg" alt="darth-vader" />
+        <span class="health">Health: <span class="dvHealth"></span></span>
+    </div>
+
+    <div class="player player2">
+        <span id="darthS">Darth Sidious</span>
+        <img class="darth2Image" src="assets/images/darthS.jpg" alt="darth-sidious" />
+        <span class="health">Health: <span class="dsHealth"></span></span>
+    </div>
+
+ <div class="player player3">
+     <span id="luke">Luke Skywalker</span>
+        <img class="lukeImage" src="assets/images/lukeSkywalker.jpg" alt="luke-skywalker" />
+        <span class="health">Health: <span class="lukeHealth"></span></span>
+    </div>
+
+   <div class="player player4">
+       <span id="obi">Obi-Wan Kenobi</span>
+    <img class="obiImage" src="assets/images/obiWan.jpg" alt="obi-wan" />
+    <span class="health">Health: <span class="obiHealth"></span></span>
+</div>
 
 
     <h2>Your character: </h2>
+
 
     <h2>Enemies available to attack: </h2> 
 
     <input class="attack" type="button" value="Attack"/>
 
-    <h2>Defender</h2>
+    <h2>Defender: </h2>
 
 </body>
 </html>
