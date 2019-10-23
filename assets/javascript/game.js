@@ -12,6 +12,8 @@ var playerSelected = 0;
 // variable enemy selected 
 var enemySelected = 0; 
 
+// user click count 
+var userClick = 1; 
 
 // global variables for player health, enemy health 
 var player1Health;  
@@ -25,13 +27,13 @@ function reset() {
     enemySelected = 0; 
 }; 
 
-// create object with all the enemies of fixed element 
+// object with attack and counterattack values: note that each index value corresponds to the HTML order of players, e.g., 0 is Darth Vader
 
 var playersAttack = [
-    {player1Attack: 6, player1Counter: 12}, 
-    {player2Attack: 10, player2Counter: 14},
-    {player3Attack: 14, player3Counter: 6}, 
-    {player4Attack: 8, player4Counter: 18}
+    {attackPower: 6, counterAttack: 12}, 
+    {attackPower: 10, counterAttack: 14},
+    {attackPower: 14, counterAttack: 6}, 
+    {attackPower: 8, counterAttack: 18}
 ];
 
 // on click 
@@ -123,15 +125,19 @@ $(document).on( "click", function(e) {
 
         if (objectClicked.attr("id") == "darthImage" && objectClicked.hasClass("enemySelect") && enemySelected === 0) {
             $("#original1").appendTo("#defenderLocation"); 
+            $("#dvHealth").addClass("defenderPlayer");
             enemySelected++; 
         } if (objectClicked.attr("id") == "darth2Image" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
             $("#original2").appendTo("#defenderLocation"); 
+            $("#dsHealth").addClass("defenderPlayer");
             enemySelected++; 
         } else if (objectClicked.attr("id") == "lukeImage" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
             $("#original3").appendTo("#defenderLocation"); 
+            $("#lukeHealth").addClass("defenderPlayer");
             enemySelected++; 
         } else if (objectClicked.attr("id") == "obiImage" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
             $("#original4").appendTo("#defenderLocation"); 
+            $("#obiHealth").addClass("defenderPlayer");
             enemySelected++; 
         }
 
@@ -139,6 +145,8 @@ $(document).on( "click", function(e) {
 
 // Attack button 
 $("input").on("click", function(e) {
+
+    
 
     // fetch your character and their health 
     var selectedPlayerHealth = $(".userPlayer").text();   
@@ -150,11 +158,34 @@ $("input").on("click", function(e) {
     console.log(objectIndex); 
 
 
-    // selectedPlayerHealth -= playersAttack[objectIndex].
-    // then display the difference 
+    console.log(playersAttack[objectIndex].counterAttack); 
 
-    // fetch the defender and their health 
-    // then subtract defender's health by your attack power and set you attack power equal 
+    var defAttackValue = playersAttack[objectIndex].counterAttack;
+
+    var newUserHealth = selectedPlayerHealth -= defAttackValue; 
+
+    console.log("new health is:" + newUserHealth); 
+
+    $(".userPlayer").text(newUserHealth); 
+
+    var defenderHealth = $(".defenderPlayer").text(); 
+
+    console.log(defenderHealth); 
+
+    var userIndex = $("#yourCharacterLoc").children(".original").attr("value"); 
+    console.log(userIndex);
+
+    var playerAttackValue = playersAttack[userIndex].attackPower;
+
+    playerAttackValue *= userClick; 
+
+    var newDefHealth = defenderHealth -= playerAttackValue; 
+
+    console.log("defender health is: " + newDefHealth);
+
+    $(".defenderPlayer").text(newDefHealth); 
+
+    userClick++; 
 
 });
 
