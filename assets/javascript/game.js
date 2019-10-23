@@ -25,6 +25,7 @@ var player4Health;
 function reset() {
     playerSelected = 0; 
     enemySelected = 0; 
+    var userClick = 1; 
 }; 
 
 // object with attack and counterattack values: note that each index value corresponds to the HTML order of players, e.g., 0 is Darth Vader
@@ -144,9 +145,7 @@ $(document).on( "click", function(e) {
 });
 
 // Attack button 
-$("input").on("click", function(e) {
-
-    
+$("input.attackButton").on("click", function(e) {
 
     // fetch your character and their health 
     var selectedPlayerHealth = $(".userPlayer").text();   
@@ -156,7 +155,6 @@ $("input").on("click", function(e) {
     // index value of selected enemy then subtract your character's health by other player's counterattack
     var objectIndex = $("#defenderLocation").children(".original").attr("value"); 
     console.log(objectIndex); 
-
 
     console.log(playersAttack[objectIndex].counterAttack); 
 
@@ -186,6 +184,26 @@ $("input").on("click", function(e) {
     $(".defenderPlayer").text(newDefHealth); 
 
     userClick++; 
+
+    // conditional to check if the user's health points are below zero 
+
+    if (newUserHealth <= 0) {
+        // insert html that you have lost 
+        $("#lostMessage").append("<p>Oh no, you've lost!</p>");
+        // insert button to restart game 
+        $("#restartButton").append("<input type='button' value='Restart Game' class='restart'/>");
+    }
+});
+
+
+// Reload function if you've lost game
+function reloadFunc() {
+    location.reload(); 
+};
+
+$("input.restart").on("click", function() { 
+
+    reloadFunc(); 
 
 });
 
