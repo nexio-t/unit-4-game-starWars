@@ -8,9 +8,12 @@
     float: left; 
 }
 
-/* .health {
+.health {
     font-size: 9pt; 
-} */
+    z-index: 2;
+    display: block; 
+    margin-left: 45px; 
+}
 
 h2 {
     clear: both; 
@@ -80,3 +83,4 @@ h2 {
     text-align: center;  
     font-size: 9pt; 
 } 
+

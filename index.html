@@ -19,7 +19,7 @@
         <div class="player player1" id="darth_Vader"> 
             <span id="darthV">Darth Vader</span>
             <img id="darthImage" src="assets/images/darth.jpg" alt="darth-vader" />
-            <span class="health">Health: <span class="dvHealth"></span></span>
+            <span id="dvHealth" class="health">50<span id="dvHealth"></span></span>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="player player2">
             <span id="darthS">Darth Sidious</span>
             <img id="darth2Image" src="assets/images/darthS.jpg" alt="darth-sidious" />
-            <span class="health">Health: <span class="dsHealth"></span></span>
+            <span id="dsHealth" class="health">50<span ></span></span>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         <div class="player player3">
             <span id="luke">Luke Skywalker</span>
                 <img id="lukeImage" src="assets/images/lukeSkywalker.jpg" alt="luke-skywalker" />
-                <span class="health">Health: <span class="lukeHealth"></span></span>
+                <span id="lukeHealth" class="health">50<span class="lukeHealth"></span></span>
             </div>
     </div>
 
@@ -43,7 +43,7 @@
         <div class="player player4">
             <span id="obi">Obi-Wan Kenobi</span>
             <img id="obiImage" src="assets/images/obiWan.jpg" alt="obi-wan" />
-            <span class="health">Health: <span class="obiHealth"></span></span>
+            <span id="obiHealth" class="health">50<span class="obiHealth"></span></span>
         </div>
     </div>
 
@@ -52,11 +52,13 @@
 
     <div id="yourCharacterLoc"></div>
 
+    <input class="attack" type="button" value="Attack"/>
+
     <h2>Enemies available to attack: </h2> 
 
     <div id="enemyLocation"></div>
 
-    <input class="attack" type="button" value="Attack"/>
+  
 
     <h2>Defender: </h2>
 

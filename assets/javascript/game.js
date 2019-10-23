@@ -36,6 +36,7 @@ var playersAttack = [
 
 // on click 
 
+// To select 
 if (playerSelected == 0 && enemySelected == 0) {
 $(document).on( "click", function(e) {
     
@@ -46,6 +47,7 @@ $(document).on( "click", function(e) {
     if (playerSelected == 0)   {
         if (objectClicked.attr("id") == "darthImage") {
             $("#original1").appendTo("#yourCharacterLoc"); 
+            $("#dvHealth").addClass("userPlayer");
             playerSelected++; 
             console.log(playerSelected);
 
@@ -61,6 +63,7 @@ $(document).on( "click", function(e) {
 
         } if (objectClicked.attr("id") == "darth2Image") {
             $("#original2").appendTo("#yourCharacterLoc"); 
+            $("#dsHealth").addClass("userPlayer");
             playerSelected++; 
             console.log(playerSelected);
 
@@ -74,7 +77,8 @@ $(document).on( "click", function(e) {
             $("#obiImage").addClass("enemySelect");
 
         } if (objectClicked.attr("id") == "lukeImage") {
-            $("#original3").appendTo("#yourCharacterLoc"); 
+            $("#original3").appendTo("#yourCharacterLoc");
+            $("#lukeHealth").addClass("userPlayer"); 
             playerSelected++; 
             console.log(playerSelected);
 
@@ -88,7 +92,8 @@ $(document).on( "click", function(e) {
             $("#obiImage").addClass("enemySelect");
 
         } if (objectClicked.attr("id") == "obiImage") {
-            $("#original4").appendTo("#yourCharacterLoc"); 
+            $("#original4").appendTo("#yourCharacterLoc");
+            $("#obiHealth").addClass("userPlayer"); 
             playerSelected++; 
             console.log(playerSelected);
 
@@ -108,33 +113,47 @@ $(document).on( "click", function(e) {
 }
 console.log(playerSelected); 
 
-    // if (playerSelected == 1 && enemySelected == 0) {
+// To select first enemy 
+$(document).on( "click", function(e) {
 
-            $(document).on( "click", function(e) {
-            
-                var objectClicked = $(e.target); 
-                console.log(objectClicked.attr("id"));
-                console.log(objectClicked.hasClass("enemySelect"));
+    var objectClicked = $(e.target); 
+    console.log(objectClicked.attr("id"));
+    console.log(objectClicked.hasClass("enemySelect"));
 
 
-                    if (objectClicked.attr("id") == "darthImage" && objectClicked.hasClass("enemySelect")) {
-                        $("#original1").appendTo("#defenderLocation"); 
-                        enemySelected++; 
-                        
-                    } if (objectClicked.attr("id") == "darth2Image" && objectClicked.hasClass("enemySelect")) {
-                        $("#original2").appendTo("#defenderLocation"); 
-                        enemySelected++; 
-                    } else if (objectClicked.attr("id") == "lukeImage" && objectClicked.hasClass("enemySelect")) {
-                        $("#original3").appendTo("#defenderLocation"); 
-                        enemySelected++; 
-                    } else if (objectClicked.attr("id") == "obiImage" && objectClicked.hasClass("enemySelect")) {
-                        $("#original4").appendTo("#defenderLocation"); 
-                        enemySelected++; 
-                    }
-            
-            });
+        if (objectClicked.attr("id") == "darthImage" && objectClicked.hasClass("enemySelect") && enemySelected === 0) {
+            $("#original1").appendTo("#defenderLocation"); 
+            enemySelected++; 
+        } if (objectClicked.attr("id") == "darth2Image" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
+            $("#original2").appendTo("#defenderLocation"); 
+            enemySelected++; 
+        } else if (objectClicked.attr("id") == "lukeImage" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
+            $("#original3").appendTo("#defenderLocation"); 
+            enemySelected++; 
+        } else if (objectClicked.attr("id") == "obiImage" && objectClicked.hasClass("enemySelect") && enemySelected ===0) {
+            $("#original4").appendTo("#defenderLocation"); 
+            enemySelected++; 
+        }
 
-// }
+});
+
+// Attack button 
+$("input").on("click", function(e) {
+
+    // fetch your character and their health 
+    var selectedPlayerHealth = $(".userPlayer").text();   
+
+    console.log(selectedPlayerHealth); 
+
+    // then subtract your character's health by other player's counterattack
+    
+    // selectedPlayerHealth -=  
+    // then display the difference 
+
+    // fetch the defender and their health 
+    // then subtract defender's health by your attack power and set you attack power equal 
+
+});
 
 });
 
