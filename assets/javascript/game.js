@@ -144,6 +144,8 @@ $(document).on( "click", function(e) {
 
 });
 
+// move the variables below here to make them global, then move that local
+
 // Attack button 
 $("input.attackButton").on("click", function(e) {
 
@@ -191,21 +193,38 @@ $("input.attackButton").on("click", function(e) {
         // insert html that you have lost 
         $("#lostMessage").append("<p>Oh no, you've lost!</p>");
         // insert button to restart game 
-        $("#restartButton").append("<input type='button' value='Restart Game' class='restart'/>");
+        $("#restartButton").append("<input id='restart' type='button' value='Restart Game' class='restart'/>");
+
+
+        $("#restart").on("click", function() { 
+ 
+            console.log("Clicked");
+            // window.location.href = window.location.href;
+            location.reload(); 
+        });
+
     }
+
+    // If defender health is zero or lower, then remove the class defenderPlayer and hide that element, and reset enemy selected to zero -- stylize and clean up your games
+    if (newDefHealth <= 0) {
+        $("#defenderLocation").children().hide(); 
+        $("#winMessage").text("Nice! You slayed your enemy! Choose another if you'd like to continue playing.");
+        
+    }
+
 });
 
 
-// Reload function if you've lost game
+// Reload function if you've lost game after click "restart"
 function reloadFunc() {
-    location.reload(); 
+    document.location.reload(); 
 };
 
-$("input.restart").on("click", function() { 
-
-    reloadFunc(); 
-
-});
+// $("input.restart").on("click", function() { 
+ 
+//     window.location.href = window.location.href;
+//     // location.reload(); 
+// });
 
 });
 
