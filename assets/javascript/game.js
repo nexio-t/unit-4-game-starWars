@@ -23,9 +23,7 @@ var player4Health;
 
 // reset game function 
 function reset() {
-    playerSelected = 0; 
     enemySelected = 0; 
-    var userClick = 1; 
 }; 
 
 // object with attack and counterattack values: note that each index value corresponds to the HTML order of players, e.g., 0 is Darth Vader
@@ -179,6 +177,8 @@ $("input.attackButton").on("click", function(e) {
 
     playerAttackValue *= userClick; 
 
+    console.log("player attack value is: " + playerAttackValue);
+
     var newDefHealth = defenderHealth -= playerAttackValue; 
 
     console.log("defender health is: " + newDefHealth);
@@ -186,6 +186,8 @@ $("input.attackButton").on("click", function(e) {
     $(".defenderPlayer").text(newDefHealth); 
 
     userClick++; 
+
+    console.log("user click is: " + userClick); 
 
     // conditional to check if the user's health points are below zero 
 
@@ -208,8 +210,9 @@ $("input.attackButton").on("click", function(e) {
     // If defender health is zero or lower, then remove the class defenderPlayer and hide that element, and reset enemy selected to zero -- stylize and clean up your games
     if (newDefHealth <= 0) {
         $("#defenderLocation").children().hide(); 
+        $("span").removeClass("defenderPlayer"); 
         $("#winMessage").text("Nice! You slayed your enemy! Choose another if you'd like to continue playing.");
-        
+        reset(); 
     }
 
 });
