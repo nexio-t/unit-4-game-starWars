@@ -145,9 +145,12 @@ $("input").on("click", function(e) {
 
     console.log(selectedPlayerHealth); 
 
-    // then subtract your character's health by other player's counterattack
-    
-    // selectedPlayerHealth -=  
+    // index value of selected enemy then subtract your character's health by other player's counterattack
+    var objectIndex = $("#defenderLocation").children(".original").attr("value"); 
+    console.log(objectIndex); 
+
+
+    // selectedPlayerHealth -= playersAttack[objectIndex].
     // then display the difference 
 
     // fetch the defender and their health 
